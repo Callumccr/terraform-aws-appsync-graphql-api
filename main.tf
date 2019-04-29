@@ -1,15 +1,13 @@
 resource "aws_appsync_graphql_api" "example_1" {
-  count               = "${var.is_api_key ? 1 : 0}"
-  authentication_type = "${var.is_api_key}"
+  count               = "${var.authentication_type == "API_KEY" ? 1 : 0}"
+  authentication_type = "${var.authentication_type}"
   name                = "${var.name}"
-  api_id              = "${var.api_id}"
-  expires             = "${var.expires}"
 }
 
 
 resource "aws_appsync_graphql_api" "example_2" {
-  count               = "${var.is_amazon_cognito_user_pools ? 1 : 0}"
-  authentication_type = "${var.is_amazon_cognito_user_pools}"
+  count               = "${var.authentication_type == "AMAZON_COGNITO_USER_POOLS" ? 1 : 0}"
+  authentication_type = "${var.authentication_type}"
   name                = "${var.name}"
 
   user_pool_config {
@@ -21,8 +19,8 @@ resource "aws_appsync_graphql_api" "example_2" {
 
 
 resource "aws_appsync_graphql_api" "example_3" {
-  count               = "${var.is_aws_iam ? 1 : 0}"
-  authentication_type = "${var.is_aws_iam}"
+  count               = "${var.authentication_type == "AWS_IAM" ? 1 : 0}"
+  authentication_type = "${var.authentication_type}"
   name                = "${var.name}"
   schema              = <<EOF
 schema {
@@ -36,7 +34,7 @@ EOF
 
 
 resource "aws_appsync_graphql_api" "example_4" {
-  count               = "${var.is_openid_connect ? 1 : 0}"
+  count               = "${var.authentication_type == "OPENID_CONNECT" ? 1 : 0}"
   authentication_type = "${var.is_openid_connect}"
   name                = "${var.name}"
 

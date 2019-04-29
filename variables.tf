@@ -5,21 +5,6 @@ variable "authentication_type" {
   description = "The authentication type. Valid values: API_KEY, AWS_IAM, AMAZON_COGNITO_USER_POOLS, OPENID_CONNECT (required)"
   default     = ""
 }
-variable "is_api_key"{
-  default     = "false"
-}
-
-variable "is_aws_iam"{
-  default     = "false"
-}
-
-variable "is_amazon_cognito_user_pools" {
-  default     = "false"
-}
-
-variable "is_openid_connect" {
-  default     = "false"
-}
 
 variable "name" {
   type        = "string"
@@ -32,7 +17,7 @@ variable "log_config" {
   default     = ""
 }
 
-variable "apenid_connect_config" {
+variable "openid_connect_config" {
   type        = "string"
   description = "Nested argument containing OpenID conect configuration"
   default     = "" 
@@ -111,25 +96,5 @@ variable "app_id_client_regex"{
 variable "aws_region" {
   type        = "string"
   description = "The AWS region in which the user pool was created"
-  default     = ""
-}
-
-##Variables for AppSync Api Key
-
-variable "api_id" {
-  type        = "string"
-  description = "The ID of the associated AppSync API"
-  default     = ""
-}
-
-variable "description" {
-  type        = "string"
-  description = "The API key description. Default to Managed by Terraform"
-  default     = ""
-}
-
-variable "expires" {
-  type        = "string"
-  description = "RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation"
   default     = ""
 }
