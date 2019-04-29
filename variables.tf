@@ -113,3 +113,23 @@ variable "aws_region" {
   description = "The AWS region in which the user pool was created"
   default     = ""
 }
+
+##Variables for AppSync Api Key
+
+variable "api_id" {
+  type        = "string"
+  description = "The ID of the associated AppSync API"
+  default     = ""
+}
+
+variable "description" {
+  type        = "string"
+  description = "The API key description. Default to Managed by Terraform"
+  default     = ""
+}
+
+variable "expires" {
+  type        = "string"
+  description = "RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation"
+  default     = ""
+}

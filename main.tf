@@ -2,6 +2,8 @@ resource "aws_appsync_graphql_api" "example_1" {
   count               = "${var.is_api_key ? 1 : 0}"
   authentication_type = "${var.is_api_key}"
   name                = "${var.name}"
+  api_id              = "${var.api_id}"
+  expires             = "${var.expires}"
 }
 
 
