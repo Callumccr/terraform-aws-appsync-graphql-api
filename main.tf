@@ -12,7 +12,7 @@ resource "aws_appsync_graphql_api" "example_2" {
 
   user_pool_config {
     aws_region     = "${var.aws_region}"
-    default_action = "${var.default_action}"
+    default_action = "ALLOW"
     user_pool_id   = "${var.user_pool_id}"
   }
 }
@@ -35,7 +35,7 @@ EOF
 
 resource "aws_appsync_graphql_api" "example_4" {
   count               = "${var.authentication_type == "OPENID_CONNECT" ? 1 : 0}"
-  authentication_type = "${var.is_openid_connect}"
+  authentication_type = "${var.authentication_type}"
   name                = "${var.name}"
 
   openid_connect_config {

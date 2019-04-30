@@ -79,7 +79,7 @@ variable "iat_ttl" {
 variable "default_action" {
   type        = "string"
   description = "he action that you want your GraphQL API to take when a request that uses Amazon Cognito User Pool authentication doesn't match the Amazon Cognito User Pool configuration. Valid: ALLOW and DENY"
-  default     = "deny"
+  default     = "ALLOW"
 }
 
 variable "user_pool_id" {
