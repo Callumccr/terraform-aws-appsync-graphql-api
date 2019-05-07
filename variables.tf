@@ -37,7 +37,7 @@ variable "schema" {
 
 ##Variable for log_config ()
 
-variable "cloudwatch_log_role_arn" {
+variable "cloudwatch_logs_role_arn" {
   type        = "string"
   description = "Amazon Resource Name of the service role that AWS AppSync will assume to publish to Amazon CloudWatch logs in your account"
   default     = ""
