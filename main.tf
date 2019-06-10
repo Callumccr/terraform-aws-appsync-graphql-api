@@ -16,7 +16,7 @@ resource "aws_appsync_graphql_api" "example_2" {
   schema              = "${var.schema}"
   user_pool_config {
     aws_region     = "${var.aws_region}"
-    default_action = "ALLOW"
+    default_action = "${var.default_action}"
     user_pool_id   = "${var.user_pool_id}"
   }
   log_config       {
