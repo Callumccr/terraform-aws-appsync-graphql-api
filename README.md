@@ -91,7 +91,7 @@ If you want to update README.md file, run that script while being in 'hooks' fol
 | app\_id\_client\_regex | A regular exprecion for validating the incoming Amazon Cognito User Pool app client ID | string | `""` | no |
 | auth\_ttl | Number of millseconds a token is valid after being authenticated | string | `""` | no |
 | authentication\_type | The authentication type. Valid values: API_KEY, AWS_IAM, AMAZON_COGNITO_USER_POOLS, OPENID_CONNECT (required) | string | n/a | yes |
-| aws\_region | The AWS region in which the user pool was created | string | `""` | no |
+| aws\_region | The AWS region in which the user pool was created | string | n/a | yes |
 | client\_id | Client identifier of the Relying party at the OpenID identity provider. This identifier is typically obtained when the Relying party is registered with the OpenID identity provider. You can specify a regular expression so the AWS AppSync can validate against multiple client identifiers at a time. | string | `""` | no |
 | cloudwatch\_logs\_role\_arn | Amazon Resource Name of the service role that AWS AppSync will assume to publish to Amazon CloudWatch logs in your account | string | `""` | no |
 | default\_action | he action that you want your GraphQL API to take when a request that uses Amazon Cognito User Pool authentication doesn't match the Amazon Cognito User Pool configuration. Valid: ALLOW and DENY | string | `"ALLOW"` | no |
