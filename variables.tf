@@ -94,5 +94,4 @@ variable "app_id_client_regex"{
 variable "aws_region" {
   type        = "string"
   description = "The AWS region in which the user pool was created"
-  default     = ""
 }
