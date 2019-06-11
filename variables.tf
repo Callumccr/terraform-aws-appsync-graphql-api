@@ -3,13 +3,11 @@
 variable "authentication_type" {
   type        = "string"
   description = "The authentication type. Valid values: API_KEY, AWS_IAM, AMAZON_COGNITO_USER_POOLS, OPENID_CONNECT (required)"
-  default     = ""
 }
 
 variable "name" {
   type        = "string"
   description = "A user-supplied name for the GraphqlApi"
-  default     = ""
 }
 
 variable "log_config" {

@@ -2,6 +2,7 @@ resource "aws_appsync_graphql_api" "example_1" {
   count               = "${var.authentication_type == "API_KEY" ? 1 : 0}"
   authentication_type = "${var.authentication_type}"
   name                = "${var.name}"
+  schema              = "${var.schema}"        
   log_config       {
     cloudwatch_logs_role_arn  = "${var.cloudwatch_logs_role_arn}"
     field_log_level          = "${var.field_log_level}"
@@ -34,14 +35,7 @@ resource "aws_appsync_graphql_api" "example_3" {
     cloudwatch_logs_role_arn  = "${var.cloudwatch_logs_role_arn}"
     field_log_level          = "${var.field_log_level}"
   }
-  schema              = <<EOF
-schema {
-    query: Query
-}
-type Query {
-  test: Int
-}
-EOF
+  schema = "${var.schema}"        
 }
 
 
@@ -49,6 +43,7 @@ resource "aws_appsync_graphql_api" "example_4" {
   count               = "${var.authentication_type == "OPENID_CONNECT" ? 1 : 0}"
   authentication_type = "${var.authentication_type}"
   name                = "${var.name}"
+  schema              = "${var.schema}"        
   log_config       {
     cloudwatch_logs_role_arn  = "${var.cloudwatch_logs_role_arn}"
     field_log_level          = "${var.field_log_level}"
