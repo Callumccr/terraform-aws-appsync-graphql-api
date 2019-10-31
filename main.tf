@@ -7,15 +7,15 @@ resource "aws_appsync_graphql_api" "graphql_api" {
   dynamic "openid_connect_config" {
     for_each = var.openid_connect_config
       content {
-      issuer = lookup(openid_connect_config.value,"issuer",null)
+      issuer = openid_connect_config.value
     }
   }
   dynamic "user_pool_config" {
-    for_each = var.user_pool_config
+    for_each = var.user_pool_config 
       content {
-        aws_region     = lookup(user_pool_config.value,"aws_region",null)
-        default_action = lookup(user_pool_config.value,"default_action",null)
-        user_pool_id   = lookup(user_pool_config.value,"user_pool_id",null)
+        aws_region     = user_pool_config.value 
+        default_action = user_pool_config.value 
+        user_pool_id   = user_pool_config.value
       }
   }
   dynamic "log_config" {
