@@ -58,7 +58,7 @@ variable "issuer" {
 
 variable "auth_ttl" {
   description = "Number of millseconds a token is valid after being authenticated"
-  default     = ""
+  default     = "3600000"
 }
 
 variable "client_id" {
@@ -70,7 +70,7 @@ variable "client_id" {
 variable "iat_ttl" {
   type        = string
   description = "Number of milliseconds a token is valid after being issued to a user"
-  default     = ""
+  default     = "3600000"
 }
 
 ##Variable user_pool_config

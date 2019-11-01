@@ -8,13 +8,16 @@ resource "aws_appsync_graphql_api" "graphql_api" {
     for_each = var.openid_connect_config
       content {
       issuer = openid_connect_config.value
+      iat_ttl = var.iat_ttl
+      client_id = openid_connect_config.value
+      auth_ttl = var.auth_ttl
     }
   }
   dynamic "user_pool_config" {
     for_each = var.user_pool_config 
       content {
         user_pool_id   = user_pool_config.value.user_pool_id
-        default_action = user_pool_config.value.default_action
+        default_action = var.default_action
       }
   }
   dynamic "log_config" {
