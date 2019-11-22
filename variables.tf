@@ -11,20 +11,21 @@ variable "name" {
 }
 
 variable "log_config" {
+  type        = "map"
   description = "Nested argument containing logging configuration. Defined below"
-  default     = ""
+  default     = {}
 }
 
 variable "openid_connect_config" {
-  type        = "string"
+  type        = "map"
   description = "Nested argument containing OpenID conect configuration"
-  default     = "" 
+  default     = {}
 }
 
 variable "user_pool_config" {
-  type        = "string"
+  type        = "map"
   description = "The Amazon Cognito User Pool Configuration"
-  default     = ""
+  default     = {}
 }
 
 variable "schema" {
