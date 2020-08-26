@@ -82,7 +82,8 @@ variable "exclude_verbose_content" {
 variable "additional_authentication_provider" {
   type = object({
     authentication_type = string
-    user_pool_config    = map(any)
+    user_pool_id        = string
+    app_id_client_regex = string
   })
   description = "(Optional) One or more additional authentication providers for the GraphqlApi."
 }
