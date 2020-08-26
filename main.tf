@@ -11,7 +11,7 @@ resource "aws_appsync_graphql_api" "api_key" {
   dynamic "additional_authentication_provider" {
     for_each = try(length(list(var.additional_authentication_provider)) > 0 ? [var.additional_authentication_provider] : [])
     content {
-      authentication_type = each.value.["authentication_type"]
+      authentication_type = each.value["authentication_type"]
       user_pool_config {
         user_pool_id        = each.value["user_pool_id"]
         app_id_client_regex = each.value["app_id_client_regex"]
