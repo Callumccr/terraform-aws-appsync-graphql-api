@@ -8,7 +8,7 @@
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:-----:|
-| additional\_authentication\_provider | (Optional) One or more additional authentication providers for the GraphqlApi. | <code><pre>object({<br>    authentication_type = string<br>    user_pool_config    = map(any)<br>  })<br></pre></code> | n/a | yes |
+| additional\_authentication\_provider | (Optional) One or more additional authentication providers for the GraphqlApi. | <code><pre>object({<br>    authentication_type = string<br>    user_pool_id        = string<br>    app_id_client_regex = string<br>  })<br></pre></code> | n/a | yes |
 | authentication\_type | The authentication type. Valid values: API\_KEY, AWS\_IAM, AMAZON\_COGNITO\_USER\_POOLS, OPENID\_CONNECT (required) | `string` | n/a | yes |
 | availability\_zones | (Required) - The AWS avaialbility zones (e.g. ap-southeast-2a/b/c). Autoloaded from region.tfvars. | `list(string)` | n/a | yes |
 | graphqlapi\_name | A user-supplied name for the GraphqlApi | `string` | n/a | yes |
