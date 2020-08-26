@@ -16,7 +16,7 @@ resource "aws_appsync_graphql_api" "api_key" {
       user_pool_config {
         user_pool_id        = r.value["user_pool_id"]
         app_id_client_regex = r.value["app_id_client_regex"]
-        aws_region          = r.aws_region
+        aws_region          = var.aws_region
       }
     }
   }
