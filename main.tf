@@ -9,7 +9,7 @@ resource "aws_appsync_graphql_api" "api_key" {
     exclude_verbose_content  = var.exclude_verbose_content
   }
   dynamic "additional_authentication_provider" {
-    for_each = length(list(var.additional_authentication_provider)) > 0 ? var.additional_authentication_provider : {{}}
+    for_each = try(length(list(var.additional_authentication_provider)) > 0 ? var.additional_authentication_provider : tomap(false), {})
     content {
       authentication_type = each.value["authentication_type"]
       user_pool_config {
