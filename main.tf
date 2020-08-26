@@ -13,8 +13,8 @@ resource "aws_appsync_graphql_api" "api_key" {
     content {
       authentication_type = each.value["authentication_type"]
       user_pool_config {
-        user_pool_id        = each.user_pool_config.value["user_pool_id"]
-        app_id_client_regex = each.user_pool_config.value["app_id_client_regex"]
+        user_pool_id        = each.value["user_pool_config"].user_pool_id
+        app_id_client_regex = each.value["user_pool_config"].app_id_client_regex
         aws_region          = var.aws_region
       }
     }
